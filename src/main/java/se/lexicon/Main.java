@@ -10,6 +10,7 @@ public class Main {
 
         double secondNumber;
         double result = 0;
+        boolean dividedByZero = false;
 
         System.out.println("Hello and welcome!");
         System.out.print("Write a number: ");
@@ -37,8 +38,15 @@ public class Main {
                 result = firstNumber * secondNumber;
                 break;
             case "/":
+                if (secondNumber == 0.0) {
+                    System.out.println("Can't divide by zero!");
+                    dividedByZero = true;
+                }
                 result = firstNumber / secondNumber;
+                break;
         }
-        System.out.println(result);
+        if (!dividedByZero) {
+            System.out.println(result);
+        }
     }
 }
