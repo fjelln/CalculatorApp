@@ -7,14 +7,22 @@ public class Main {
         Scanner input = new Scanner(System.in);
         double firstNumber;
         String operator;
+
         double secondNumber;
         double result = 0;
 
         System.out.println("Hello and welcome!");
         System.out.print("Write a number: ");
         firstNumber = input.nextDouble();
-        System.out.print("Choose an operator (+, -, *, /): ");
-        operator = input.next();
+        while(true) {
+            System.out.print("Choose an operator (+, -, *, /): ");
+            operator = input.next();
+            if (operator.equals("+") || operator.equals("-") || operator.equals("*") || operator.equals("/")) {
+                break;
+            } else {
+                System.out.println("Try again!");
+            }
+        }
         System.out.print("Write a number: ");
         secondNumber = input.nextDouble();
 
@@ -30,8 +38,6 @@ public class Main {
                 break;
             case "/":
                 result = firstNumber / secondNumber;
-            default:
-                System.out.println("Invalid operator: " + operator);
         }
         System.out.println(result);
     }
